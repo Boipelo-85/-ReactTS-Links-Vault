@@ -77,20 +77,24 @@ h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
+
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
   }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
+
   @media (max-width: 1024px) {
     font-size: 20px;
   }
 }
+
 p {
   margin: 0;
 }
@@ -108,4 +112,60 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* NavPart */
+.nav {
+
+  background-color: #aa3bff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.Heading-items {
+
+  margin: auto;
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  justify-content: center;
+}
+
+.icon-styles {
+
+  color: #08060d;
+  size: 10px;
+}
+
+.icon-name {
+
+  font-family: 'Courier New', Courier, monospace;
+  color: #fdfdfd;
+  font-size: 40px;
+  margin: 0;
+  padding: 3px;
+}
+/* Footer Part */
+
+.footer{
+
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      position: fixed;
+      background-color: #aa3bff;
+      color: #fdfdfd;
+      justify-content: center;
+}
+.class-content{
+
+    padding: 10px;
+}
+/* Text Part */
+h1 {
+
+  font-family: 'Courier New', Courier, monospace;
+  color: #aa3bff;
 }
