@@ -30,6 +30,11 @@
   }
 }
 
+/* Make box-sizing predictable across the page */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
@@ -64,6 +69,33 @@
 
 body {
   margin: 0;
+  background: transparent;
+  position: relative;
+}
+
+/* Two solid background halves: top and bottom (no gradient).
+   Uses fixed pseudo-elements so the transition is a clean line at 50vh.
+   Top: #f8ffde, Bottom: #6a8d0d */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+body::before {
+  top: 0;
+  height: 50vh;
+  background: #f8ffde;
+}
+
+body::after {
+  top: 50vh;
+  bottom: 0;
+  background: #6a8d0d;
 }
 
 h1,
@@ -114,23 +146,45 @@ code {
   background: var(--code-bg);
 }
 
+/* First Name */
+.Project-Name{
+
+    align-items: center;
+    padding-top: 20px;
+}
 /* NavPart */
 .nav {
-
-  background-color: #aa3bff;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  box-sizing: border-box;
 }
 
 .Heading-items {
-
-  margin: auto;
   display: flex;
   align-items: center;
-  padding: 16px 0;
-  justify-content: center;
+  gap: 12px;
+  color: #fdfdfd;
+}
+
+.links-content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.link {
+  color: #fdfdfd;
+  padding: 8px 6px;
+  text-decoration: none;
+}
+
+.button-component {
+  display: flex;
+  align-items: center;
 }
 
 .icon-styles {
@@ -142,22 +196,23 @@ code {
 .icon-name {
 
   font-family: 'Courier New', Courier, monospace;
-  color: #fdfdfd;
+  color: #08060d;
   font-size: 40px;
   margin: 0;
   padding: 3px;
+  font-weight: bold;
 }
 /* Footer Part */
 
 .footer{
 
-      bottom: 0;
-      width: 100%;
-      left: 0;
-      position: fixed;
-      background-color: #aa3bff;
-      color: #fdfdfd;
-      justify-content: center;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  position: fixed;
+  background-color: transparent;
+  color: #fdfdfd;
+  justify-content: center;
 }
 .class-content{
 
@@ -167,5 +222,42 @@ code {
 h1 {
 
   font-family: 'Courier New', Courier, monospace;
-  color: #aa3bff;
+  color: #fdfdfd;
+}
+
+/* Hero section */
+.hero-section{
+
+    display: flex;
+}
+.image{
+
+    width: auto;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* mid-links */
+
+.links-container{
+
+      display: flex;
+      justify-content: center;
+      padding: 10px 32px;
+      background-color: #bade58;
+}
+.mid-links{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+.middle-links{
+
+    font-family: 'Courier New', Courier, monospace;
+    color: #08060d;
+    font-weight: bold;
+    text-decoration: none;
+
 }

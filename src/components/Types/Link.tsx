@@ -7,7 +7,7 @@ type LinkAttribute = {
     title: string,
     url: string,
     description: string,
-    tags: string
+    tags?: string
 }
 export const Link: React.FC<LinkAttribute> = () => {
 
