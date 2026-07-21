@@ -1,13 +1,16 @@
-export const MidLinks = () => {
+type MidLinksProps = {
+  onAddClick: () => void
+  onDisplayClick: () => void
+}
+
+export const MidLinks = ({ onAddClick, onDisplayClick }: MidLinksProps) => {
   return (
     <div className='links-container'>
 
-           <div className='mid-links'>
+           <div className='mid-button'>
 
-                <a href="#link-form" className='middle-links'>Add Link</a>
-                <a href="#" className='middle-links'>Display Links</a>
-                <a href="#" className='middle-links'>Update Link</a>
-                <a href="#" className='middle-links'>Remove Link</a>
+                <button type='button' className='add-button' onClick={onAddClick}>Add Link  </button>
+                <button type='button' className='middle-links' onClick={onDisplayClick}>Display Links</button>
 
             </div>
       </div>

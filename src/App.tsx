@@ -16,8 +16,10 @@ function App() {
     const savedLinks = localStorage.getItem('links')
     return savedLinks ? JSON.parse(savedLinks) : []
   })
+
   const [showForm, setShowForm] = useState(false)
 
+  
   useEffect(() => {
     localStorage.setItem('links', JSON.stringify(links))
   }, [links])
@@ -50,14 +52,11 @@ function App() {
           <Hero />
         </div>
         <div id='mid-linkss'>
-          <MidLinks />
+          <MidLinks onAddClick={() => setShowForm(true)} />
         </div>
-        <div>
-          <button onClick={() => setShowForm(true)} style={{ padding: '10px 20px', cursor: 'pointer' }}>
-            ADD LINK
-          </button>
-          {showForm && <LinkForm onAdd={handleAddLink} onClose={handleCloseForm} />}
-        </div>
+
+            {showForm && <LinkForm onAdd={handleAddLink} onClose={handleCloseForm} />}
+          
       </div>
     </div>
   )

@@ -170,24 +170,30 @@ code {
   color: #fdfdfd;
   font-size: 40px;
 }
-.search{
 
-      color : #fdfdfd;
-      width: 65%;
-      height: 30px;
-      padding: 5px;
-      position: absolute;
-      
+.searchBar-content {
+  position: relative;
 
 }
-.input-search{
 
-      padding : 0 30px;
-      border: 1px solid black;
-      position: relative;
-      cursor: pointer;
-      padding : 10px;
-      
+.search {
+
+  position: absolute;
+  left: 12px;
+  top: 55%;
+  width: 25px;
+  height: 20px;
+  pointer-events: none;
+
+}
+
+.input-search {
+
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  
 }
 .link {
   color: #fdfdfd;
@@ -196,8 +202,10 @@ code {
 }
 
 .button-component {
+
   display: flex;
   align-items: center;
+
 }
 
 .icon-styles {
@@ -214,6 +222,7 @@ code {
   margin: 0;
   padding: 3px;
   font-weight: bold;
+
 }
 /* Footer Part */
 
@@ -226,16 +235,19 @@ code {
   background-color: transparent;
   color: #fdfdfd;
   justify-content: center;
+
 }
 .class-content{
 
     padding: 10px;
+
 }
 /* Text Part */
 h1 {
 
   font-family: 'Courier New', Courier, monospace;
   color: #fdfdfd;
+
 }
 
 /* Hero section */
@@ -262,21 +274,74 @@ h1 {
 
       display: flex;
       justify-content: center;
-      padding: 10px 32px;
+      padding: 10px 20px;
       background-color: #bade58;
 }
-.mid-links{
+.mid-button{
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
-  gap: 20px;
+  justify-content: center;
+  gap:10px;
 }
-.middle-links{
+.add-button{
 
     font-family: 'Courier New', Courier, monospace;
     color: #08060d;
     font-weight: bold;
-    text-decoration: none;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 8px 25px;
+
+}
+.middle-links{
+    
+    font-family: 'Courier New', Courier, monospace;
+    color: #08060d;
+    font-weight: bold;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 8px 12px;
+
+}
+.link-form {
+
+  width: min(100% - 32px, 700px);
+  margin: 24px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #fdfdfd;
+
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+
+}
+
+.form-row label {
+  text-align: right;
+}
+
+#exit-Button {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  padding: 0;
+  align-self: center;
+  cursor: pointer;
+}
+
+.add-link-button {
+
+  width: fit-content;
+  min-width: 30px;
+  align-self: center;
+  padding: 8px 16px;
+  cursor: pointer;
 
 }

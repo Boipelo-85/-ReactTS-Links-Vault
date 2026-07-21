@@ -43,31 +43,42 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onClose }) => {
     setTitle('')
     setUrl('')
     setDescription('')
-    setTags('work')
+    setTags('')
+    localStorage.removeItem('link-form.title')
+    localStorage.removeItem('link-form.url')
+    localStorage.removeItem('link-form.description')
+    localStorage.removeItem('link-form.tags')
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+
+    <form className='link-form' onSubmit={handleSubmit}>
       {onClose && (
-        <button type='button' onClick={onClose} style={{ float: 'right', cursor: 'pointer' }}>
+        <button id='exit-Button' type='button' onClick={onClose}>
           ✕
         </button>
+
       )}
-      <label>Title:</label>
-      <input type='text' className='titleInput' value={title} onChange={(e) => setTitle(e.target.value)} />
-      <br />
-      <label>URL:</label>
-      <input type='url' className='urlInput' value={url} onChange={(e) => setUrl(e.target.value)} />
-      <br />
-      <label>Description:</label>
-      <input type='text' className='descInput' value={description} onChange={(e) => setDescription(e.target.value)} />
-      <br />
-      <label>Tags:</label>
-      <input type='text' className='tagInput' value={tags} onChange={(e) => setTags(e.target.value)} />
-      <br />
+      <div className='form-row'>
+        <label htmlFor='link-title'>Title:</label>
+        <input id='link-title' type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
+      </div>
+      <div className='form-row'>
+        <label htmlFor='link-url'>URL:</label>
+        <input id='link-url' type='url' value={url} onChange={(e) => setUrl(e.target.value)} />
+      </div>
+      <div className='form-row'>
+        <label htmlFor='link-description'>Description:</label>
+        <input id='link-description' type='text'  value={description} onChange={(e) => setDescription(e.target.value)} />
+      </div>
+      <div className='form-row'>
+        <label htmlFor='link-tags'>Tags:</label>
+        <input id='link-tags' type='text'  value={tags} onChange={(e) => setTags(e.target.value)} />
+      </div>
 
       {error ? <p>{error}</p> : null}
-      <Button label='ADD LINK' type='submit' />
+      <Button label=' ADD LINK '  className='add-link-button'/>
     </form>
+    
   )
 }

@@ -21,8 +21,8 @@ export const SearchBar :React.FC<SearchProp> = ({value,onChange}) => {
             </div>
 
             <div className='searchBar-content'>
-                <img src={searchBar} className='search' />
-                <input type="text" className='input-search'  placeholder='Search for a link ' value={value}  onChange={(e) => onChange(e.target.value)}/>
+                <img src={searchBar} className='search' alt="Search icon" />
+                <input type="text" className='input-search' placeholder='Search for a link' value={value} onChange={(e) => onChange(e.target.value)} />
             </div>
 
         </nav>
