@@ -168,14 +168,27 @@ code {
   align-items: center;
   gap: 12px;
   color: #fdfdfd;
+  font-size: 40px;
 }
+.search{
 
-.links-content {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+      color : #fdfdfd;
+      width: 65%;
+      height: 30px;
+      padding: 5px;
+      position: absolute;
+      
+
 }
+.input-search{
 
+      padding : 0 30px;
+      border: 1px solid black;
+      position: relative;
+      cursor: pointer;
+      padding : 10px;
+      
+}
 .link {
   color: #fdfdfd;
   padding: 8px 6px;
@@ -229,6 +242,12 @@ h1 {
 .hero-section{
 
     display: flex;
+}
+.hero-content{
+
+    padding : 10px;
+    
+    
 }
 .image{
 

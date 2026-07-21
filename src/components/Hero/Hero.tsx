@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 import { Text } from '../Text/Text'
 import webDev from '../../assets/web.jpg'
@@ -8,10 +8,10 @@ export const Hero = () => {
 
         <div className='hero-section'>
 
-            <div>
+            <div  className='hero-content'>
 
                 <Text variant={'h3'}> Hi there </Text>
-                <Text variant={'h1'}> This is a Links-Vault Site. </Text>
+                <Text variant={'h1'} style={{fontSize: 30}}> This is a Links-Vault Site. </Text>
                 <p>
                     It allows users to save, organize and manage
                     their favorite links/websites in one place —
