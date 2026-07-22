@@ -1,24 +1,35 @@
 import React, { type ReactNode } from 'react'
 import type { LinkAttribute } from '../Types/Link';
+import { Text } from '../Text/Text';
 
 
 export type ItemsProps = {
 
-        attribute : LinkAttribute
+    attribute: LinkAttribute
 }
 
-export const LinkCardItem:React.FC<ItemsProps> = ({attribute}) => {
+export const LinkCardItem: React.FC<ItemsProps> = ({ attribute }) => {
 
 
-  return (
+    return (
 
-            <div>
-                <h1>{attribute.title}</h1>
-                <h3>{attribute.url}</h3>
-                <p>
-                    {attribute.description}
-                </p>
-                <span>{attribute.tags}</span>
-            </div>
-  )
+        <div className='data-content'>
+           
+                <tr >
+                    <td>{attribute.title}</td>
+                    <td>  {attribute.url}  </td>
+                     <td> {attribute.description}</td>
+                    <td> {attribute.tags}</td>
+                    <td>
+                            <Text variant={'span'}>
+                                <button>Edit</button>
+                                <button>Remove</button>
+                            </Text>
+                    </td>
+                </tr>
+
+
+        </div>
+
+    )
 }

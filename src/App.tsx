@@ -20,8 +20,9 @@ function App() {
   })
 
   const [showForm, setShowForm] = useState(false)
-  const [showAllLinks,setShowAllLinks] = useState(false)
+  // const [showAllLinks,setShowAllLinks] = useState(false)
 
+    
   useEffect(() => {
     localStorage.setItem('links', JSON.stringify(links))
   }, [links])
@@ -34,9 +35,8 @@ function App() {
   const handleCloseForm = () => {
     setShowForm(false)
   }
-  const handleCloseLinks = () => {
-    setShowAllLinks(false)
-  }
+
+
   return (
     <div id='app-container'>
       <div className='Project-Name'>
@@ -50,13 +50,19 @@ function App() {
         <Header value={search} onWordChange={setSearch} />
 
         <div id='mid-content'>
-          <Text variant={'h1'}>Boipelo Motileng</Text>
+          <div id='card-table'>
+                 <LinkCard   />
+          </div>
+             
         </div>
-        <div>
+
+        {/* <div>
           <Hero />
-        </div>
+        </div> */}
+
+
         <div id='mid-linkss'>
-          <MidLinks onAddClick={() => setShowForm(true)}   allDisplayLinks={() => setShowAllLinks(true)} />
+          <MidLinks onAddClick={() => setShowForm(true)}   />
         </div>
 
         <div>
@@ -65,7 +71,6 @@ function App() {
 
         </div>
         <div>
-            { showAllLinks && <LinkCard  />}
 
         </div>
 

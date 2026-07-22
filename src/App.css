@@ -11,6 +11,7 @@
 
 
 /* Centered card container that sits above the page backgrounds */
+
 #main-content {
 
     margin: 40px auto;
@@ -26,4 +27,17 @@
       justify-content: space-between;  
       padding: 20px;
 }
+#mid-content{
 
+        width: 60%;
+        padding: 10px;
+        padding-left: 10px;
+        background-color: #fdfdfd;
+        margin-left: 210px ;
+        padding-top: 5px;
+
+}
+#card-table{
+
+        margin-top: -20px;
+}

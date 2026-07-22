@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import type { LinkAttribute } from "../Types/Link";
 import { LinkCardItem } from "./LinkCardItem";
 
+type CloseProp = {
 
-export const LinkCard = () => {
+  onClose?: () => void
+}
+
+export const LinkCard: React.FC<CloseProp> = ({ onClose }) => {
 
   const [links, setLinks] = useState<LinkAttribute[]>(() => {
     const savedLinks = localStorage.getItem('links')
@@ -14,31 +18,43 @@ export const LinkCard = () => {
   return (
 
     <div className='card-section'>
-             {onclose && (
-        <button id='exit-Button' type='button' >
-          ✕ 
+      {onClose && (
+        <button id='exit-Button' type='button' onClick={onClose}>
+          ✕
         </button>
-
       )}
-      <h1> My current Links </h1>
 
-      <>
+      <h1 style={{ color : 'black',fontSize: 25,fontWeight: 'bold'}}> The available links in the LocalStorage</h1>
+      <table border={1.5}  className='tableContent'>
+
+          <thead >
+            
+            <tr>
+            <th>Title :</th>
+            <th>URL:</th>
+            <th>Description :</th>
+            <th>Tags </th>
+             <th>Actions</th>
+            </tr>
+            
+          </thead>
+
+          <tbody>
         {
-          
           links.map(link => (
-
             <div className='card-component'>
-                    <LinkCardItem
+              <LinkCardItem
 
-                          key={link.id}
-                          attribute={link}
-                      />
-            </div>
+                key={link.id}
+                attribute={link}
 
+              />
+            </div> 
           ))
-
-        } 
-      </>
+        }
+    
+        </tbody>
+        </table>
 
     </div>
 

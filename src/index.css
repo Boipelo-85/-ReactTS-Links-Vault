@@ -166,12 +166,12 @@ code {
 .Heading-items {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 200px;
   color: #fdfdfd;
   font-size: 40px;
+  
 }
-
-.searchBar-content {
+earchBar-content {
   position: relative;
 
 }
@@ -261,6 +261,10 @@ h1 {
     
     
 }
+.mid-content{
+
+    background-color: #fdfdfd;
+}
 .image{
 
     width: auto;
@@ -343,5 +347,20 @@ h1 {
   align-self: center;
   padding: 8px 16px;
   cursor: pointer;
+
+}
+/* Display links content */
+
+.card-section{
+
+    justify-content: center;
+
+}
+ 
+/* table content here */
+.tableContent{
+
+    width: 100%;
+    
 
 }
