@@ -20,9 +20,10 @@ function App() {
   })
 
   const [showForm, setShowForm] = useState(false)
+  const [notification, setNotification] = useState('')
+
   // const [showAllLinks,setShowAllLinks] = useState(false)
 
-    
   useEffect(() => {
     localStorage.setItem('links', JSON.stringify(links))
   }, [links])
@@ -35,6 +36,45 @@ function App() {
   const handleCloseForm = () => {
     setShowForm(false)
   }
+
+  const handleRemove = (id: string) => {
+    if (!window.confirm('Are you sure you want to remove this link row?')) {
+      return
+    }
+
+    const savedLinks = localStorage.getItem('links')
+    const currentLinks: LinkAttribute[] = savedLinks ? JSON.parse(savedLinks) : []
+    const updatedLinks = currentLinks.filter((link) => link.id !== id)
+
+    localStorage.setItem('links', JSON.stringify(updatedLinks))
+    setLinks(updatedLinks)
+    setNotification('Link removed successfully')
+
+    window.setTimeout(() => {
+      setNotification('')
+    }, 3000)
+  }
+
+  const SearchLinkInfo =() => {
+
+      if(search.length==0){
+
+          return links
+      }
+
+      const keyWord = search.toLocaleLowerCase().trim()
+
+      return links.filter((attribute) => 
+    
+          attribute.title.toLowerCase().includes(keyWord) || 
+          attribute.url.toLowerCase().includes(keyWord) ||
+          attribute.description.toLowerCase().includes(keyWord)||
+          (attribute.tags ? attribute.tags?.toLowerCase().includes(keyWord) : false)
+
+    )
+  }
+
+// const searItems = SearchLinkInfo 
 
 
   return (
@@ -51,29 +91,51 @@ function App() {
 
         <div id='mid-content'>
           <div id='card-table'>
-                 <LinkCard   />
+               <LinkCard links={links} onRemove={handleRemove} />
           </div>
-             
-        </div>
 
+
+        </div>
+        
         {/* <div>
           <Hero />
         </div> */}
 
-
+        
         <div id='mid-linkss'>
           <MidLinks onAddClick={() => setShowForm(true)}   />
         </div>
 
+        {showForm && (
+          <div
+            className='link-form-overlay'
+            role='presentation'
+            onMouseDown={handleCloseForm}
+          >
+            <div
+              className='link-form-dialog'
+              role='dialog'
+              aria-modal='true'
+              aria-labelledby='link-form-title'
+              onMouseDown={(event) => event.stopPropagation()}
+            >
+              
+
+              <h2 id='link-form-title'>Add a link</h2>
+             
+              <LinkForm onAdd={handleAddLink} onClose={handleCloseForm} />
+
+            </div>
+            
+          </div>
+        )}
+        {notification && (
+          <p className='link-notification' role='status'>
+            {notification}
+          </p>
+        )}
         <div>
-
-          {showForm && <LinkForm onAdd={handleAddLink} onClose={handleCloseForm} />}
-
         </div>
-        <div>
-
-        </div>
-
       </div>
     </div>
   )

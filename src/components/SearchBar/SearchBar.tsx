@@ -18,11 +18,13 @@ export const SearchBar :React.FC<SearchProp> = ({value,onChange}) => {
                     <span> <FaLink /> </span>
                     <span> Link-Vault Solutions  </span>
                 </div>
+
                  {/* <div className='homeName'>
                     <a href="#hero" style={{color: '#fdfdfd',fontSize: 25}}>Home</a>
                 </div> */}
+
             </div>
-           
+
             <div className='searchBar-content'>
                 <img src={searchBar} className='search' alt="Search icon" />
                 <input type="text" className='input-search' placeholder='Search for a link' value={value} onChange={(e) => onChange(e.target.value)} />

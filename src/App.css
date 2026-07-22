@@ -1,43 +1,93 @@
 #app-container {
-
     position: relative;
     min-height: calc(100vh - 100px);
     width: 100%;
-    padding-bottom: 150px;
+    padding: 0 16px 150px;
     left: 0;
     background: transparent; 
-
+    padding-top: 20px;
 }
 
 
 /* Centered card container that sits above the page backgrounds */
 
 #main-content {
-
-    margin: 40px auto;
-    width: 95%;
+    margin: 40px auto 0;
+    width: min(100%, 1100px);
     max-width: 1100px;
     background: #0d0d0d;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     overflow: hidden;
 }
 #mid-linkss{
-
-      justify-content: space-between;  
-      padding: 20px;
+    justify-content: space-between;  
+    padding: 20px;
 }
 #mid-content{
-
-        width: 60%;
-        padding: 10px;
-        padding-left: 10px;
-        background-color: #fdfdfd;
-        margin-left: 210px ;
-        padding-top: 5px;
-
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    padding: 5px 20px 20px;
+    height: auto;
+    background-color: #fdfdfd;
+    overflow-x: hidden;
 }
-#card-table{
 
-        margin-top: -20px;
+@media (max-width: 1024px) {
+    #app-container {
+        padding-inline: 12px;
+    }
+
+    #main-content {
+        margin-top: 24px;
+    }
+
+    #mid-content {
+        padding-inline: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    #app-container {
+        padding-inline: 8px;
+    }
+
+    #main-content {
+        margin-top: 16px;
+        border-radius: 12px;
+    }
+
+    #mid-linkss {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #app-container {
+        padding-inline: 4px;
+    }
+
+    #main-content {
+        margin-top: 8px;
+        border-radius: 8px;
+    }
+
+    #mid-content {
+        padding: 4px 8px 12px;
+    }
+
+    #mid-linkss {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 320px) {
+    #main-content {
+        margin-top: 4px;
+    }
+
+    #mid-content {
+        padding-inline: 4px;
+    }
 }

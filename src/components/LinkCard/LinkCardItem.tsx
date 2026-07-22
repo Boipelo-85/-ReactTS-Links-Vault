@@ -1,35 +1,34 @@
-import React, { type ReactNode } from 'react'
+import React from 'react'
 import type { LinkAttribute } from '../Types/Link';
-import { Text } from '../Text/Text';
 
 
 export type ItemsProps = {
 
     attribute: LinkAttribute
+    onRemove: (id: string) => void
+    // onEdit :(id:string) => void
 }
 
-export const LinkCardItem: React.FC<ItemsProps> = ({ attribute }) => {
+export const LinkCardItem: React.FC<ItemsProps> = ({ attribute, onRemove }) => {
 
 
     return (
 
-        <div className='data-content'>
-           
-                <tr >
+            <tr className='data-content'>
                     <td>{attribute.title}</td>
                     <td>  {attribute.url}  </td>
                      <td> {attribute.description}</td>
                     <td> {attribute.tags}</td>
                     <td>
-                            <Text variant={'span'}>
-                                <button>Edit</button>
-                                <button>Remove</button>
-                            </Text>
+                        <button className='edit-button'>Edit</button>
+                        <button
+                            className='remove-button'
+                            onClick={() => onRemove(attribute.id)}
+                        >
+                            Remove
+                        </button>
                     </td>
                 </tr>
-
-
-        </div>
 
     )
 }

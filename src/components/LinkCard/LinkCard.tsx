@@ -1,19 +1,13 @@
-import { useEffect, useState } from "react";
 import type { LinkAttribute } from "../Types/Link";
 import { LinkCardItem } from "./LinkCardItem";
 
 type CloseProp = {
-
+  links: LinkAttribute[]
+  onRemove: (id: string) => void
   onClose?: () => void
 }
 
-export const LinkCard: React.FC<CloseProp> = ({ onClose }) => {
-
-  const [links, setLinks] = useState<LinkAttribute[]>(() => {
-    const savedLinks = localStorage.getItem('links')
-    return savedLinks ? JSON.parse(savedLinks) : []
-
-  })
+export const LinkCard: React.FC<CloseProp> = ({ links, onRemove, onClose }) => {
 
   return (
 
@@ -28,36 +22,36 @@ export const LinkCard: React.FC<CloseProp> = ({ onClose }) => {
       <table border={1.5}  className='tableContent'>
 
           <thead >
-            
+
             <tr>
-            <th>Title :</th>
-            <th>URL:</th>
-            <th>Description :</th>
-            <th>Tags </th>
+            <th>Title</th>
+            <th>URL</th>
+            <th>Description</th>
+            <th>Tags</th>
              <th>Actions</th>
             </tr>
-            
+
           </thead>
 
           <tbody>
         {
           links.map(link => (
-            <div className='card-component'>
+      
               <LinkCardItem
 
                 key={link.id}
                 attribute={link}
+                onRemove={onRemove}
 
               />
-            </div> 
+            
           ))
         }
-    
+
         </tbody>
         </table>
 
     </div>
-
 
   )
 }
