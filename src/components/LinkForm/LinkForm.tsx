@@ -32,6 +32,7 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onClose }) => {
     setError('')
 
     const newLink: LinkAttribute = {
+      id :  Date.now().toString(),
       title: title.trim(),
       url: url.trim(),
       description: description.trim(),
@@ -44,10 +45,7 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onClose }) => {
     setUrl('')
     setDescription('')
     setTags('')
-    localStorage.removeItem('link-form.title')
-    localStorage.removeItem('link-form.url')
-    localStorage.removeItem('link-form.description')
-    localStorage.removeItem('link-form.tags')
+
   }
 
   return (
@@ -55,7 +53,7 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onClose }) => {
     <form className='link-form' onSubmit={handleSubmit}>
       {onClose && (
         <button id='exit-Button' type='button' onClick={onClose}>
-          ✕
+          ✕ 
         </button>
 
       )}

@@ -8,18 +8,20 @@ import { Hero } from './components/Hero/Hero'
 import { MidLinks } from './components/Mid-links/MidLinks'
 import { LinkForm } from './components/LinkForm/LinkForm'
 import type { LinkAttribute } from './components/Types/Link'
+import { LinkCard } from './components/LinkCard/LinkCard';
 
 function App() {
-  
+
   const [search, setSearch] = useState('')
+
   const [links, setLinks] = useState<LinkAttribute[]>(() => {
     const savedLinks = localStorage.getItem('links')
     return savedLinks ? JSON.parse(savedLinks) : []
   })
 
   const [showForm, setShowForm] = useState(false)
+  const [showAllLinks,setShowAllLinks] = useState(false)
 
-  
   useEffect(() => {
     localStorage.setItem('links', JSON.stringify(links))
   }, [links])
@@ -32,7 +34,9 @@ function App() {
   const handleCloseForm = () => {
     setShowForm(false)
   }
-
+  const handleCloseLinks = () => {
+    setShowAllLinks(false)
+  }
   return (
     <div id='app-container'>
       <div className='Project-Name'>
@@ -52,11 +56,19 @@ function App() {
           <Hero />
         </div>
         <div id='mid-linkss'>
-          <MidLinks onAddClick={() => setShowForm(true)} />
+          <MidLinks onAddClick={() => setShowForm(true)}   allDisplayLinks={() => setShowAllLinks(true)} />
         </div>
 
-            {showForm && <LinkForm onAdd={handleAddLink} onClose={handleCloseForm} />}
-          
+        <div>
+
+          {showForm && <LinkForm onAdd={handleAddLink} onClose={handleCloseForm} />}
+
+        </div>
+        <div>
+            { showAllLinks && <LinkCard  />}
+
+        </div>
+
       </div>
     </div>
   )

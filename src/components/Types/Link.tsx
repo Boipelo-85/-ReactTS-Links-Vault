@@ -1,5 +1,6 @@
 
 export type LinkAttribute = {
+    id:string
     title: string,
     url: string,
     description: string,
@@ -9,3 +10,5 @@ export type LinkAttribute = {
 export const Link = () => {
     return <div>Link</div>
 }
+
+
