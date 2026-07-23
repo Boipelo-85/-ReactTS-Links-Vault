@@ -8,7 +8,7 @@ import { Header } from './components/Header/Header'
 import { MidLinks } from './components/Mid-links/MidLinks'
 import { LinkForm } from './components/LinkForm/LinkForm'
 import type { LinkAttribute } from './components/Types/Link'
-import { LinkCard } from './components/LinkCard/LinkCard';
+
 
 function App() {
 
