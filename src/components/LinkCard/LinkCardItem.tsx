@@ -6,10 +6,10 @@ export type ItemsProps = {
 
     attribute: LinkAttribute
     onRemove: (id: string) => void
-    // onEdit :(id:string) => void
+    onEdit :(id : string) => void
 }
 
-export const LinkCardItem: React.FC<ItemsProps> = ({ attribute, onRemove }) => {
+export const LinkCardItem: React.FC<ItemsProps> = ({ attribute, onRemove,onEdit }) => {
 
 
     return (
@@ -20,9 +20,13 @@ export const LinkCardItem: React.FC<ItemsProps> = ({ attribute, onRemove }) => {
                      <td> {attribute.description}</td>
                     <td> {attribute.tags}</td>
                     <td>
-                        <button className='edit-button'>Edit</button>
-                        <button
-                            className='remove-button'
+                        <button className='edit-button'
+
+                            onClick={() => onEdit(attribute.id)}
+                        >   
+                            Edit
+                        </button>
+                        <button className='remove-button'
                             onClick={() => onRemove(attribute.id)}
                         >
                             Remove

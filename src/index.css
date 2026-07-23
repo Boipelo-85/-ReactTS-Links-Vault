@@ -165,6 +165,7 @@ code {
   gap: 24px;
   padding: 24px 32px;
   box-sizing: border-box;
+  flex: 1;
 }
 
 .Heading-items {
@@ -176,20 +177,19 @@ code {
 
 }
 
-earchBar-content {
-  position: relative;
+.searchBar-content {
+
+    display: flex;
 
 }
 
 .search {
 
-  position: absolute;
-  left: 12px;
-  top: 55%;
-  width: 25px;
-  height: 20px;
-  pointer-events: none;
-
+    width: 30px;
+    padding: 0 2px;
+    color:#fdfdfd;
+    height: 42px;
+    padding-left: 0px;
 }
 
 .input-search {
@@ -385,7 +385,8 @@ h1 {
   font-weight: bold;
   border: 1px solid black;
   cursor: pointer;
-  padding: 8px 25px;
+  padding: 8px 30px;
+  background-color: #bade58;
 
 }
 
@@ -515,6 +516,7 @@ h1 {
 .data-content {
 
   color: #08060d;
+  align-items: start;
 }
 
 /* Keep each row aligned with the header and inside the content panel. */

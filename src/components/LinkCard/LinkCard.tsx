@@ -1,14 +1,29 @@
+import { Text } from "../Text/Text";
 import type { LinkAttribute } from "../Types/Link";
 import { LinkCardItem } from "./LinkCardItem";
 
 type CloseProp = {
+
   links: LinkAttribute[]
   onRemove: (id: string) => void
   onClose?: () => void
+  onEdit : (id: string) => void 
+  searchLinks : string 
 }
 
-export const LinkCard: React.FC<CloseProp> = ({ links, onRemove, onClose }) => {
+export const LinkCard: React.FC<CloseProp> = ({ links, onRemove, onClose,onEdit,searchLinks }) => {
 
+    if (links.length === 0){
+
+          if(searchLinks.trim().length > 0){
+
+                  return <Text variant={'h3'}> {searchLinks} is not found in the links </Text>
+          }else{
+
+                return 
+          }
+
+    }
   return (
 
     <div className='card-section'>
@@ -18,7 +33,6 @@ export const LinkCard: React.FC<CloseProp> = ({ links, onRemove, onClose }) => {
         </button>
       )}
 
-      <h1 style={{ color : 'black',fontSize: 25,fontWeight: 'bold'}}> The available links in the LocalStorage</h1>
       <table border={1.5}  className='tableContent'>
 
           <thead >
@@ -42,9 +56,9 @@ export const LinkCard: React.FC<CloseProp> = ({ links, onRemove, onClose }) => {
                 key={link.id}
                 attribute={link}
                 onRemove={onRemove}
-
+                onEdit={onEdit}  
               />
-            
+
           ))
         }
 

@@ -1,14 +1,15 @@
 import React from 'react'
 import searchBar from '../../assets/searchbar.png'
 import { FaLink } from 'react-icons/fa';
+import { Text } from '../Text/Text';
 
 type SearchProp = {
 
     value : string,
     onChange : (value : string)  => void;
-
+    onAddClick: () => void
 }
-export const SearchBar :React.FC<SearchProp> = ({value,onChange}) => {
+export const SearchBar :React.FC<SearchProp> = ({value,onChange,onAddClick}) => {
   return (
     <div>
 
@@ -26,8 +27,9 @@ export const SearchBar :React.FC<SearchProp> = ({value,onChange}) => {
             </div>
 
             <div className='searchBar-content'>
-                <img src={searchBar} className='search' alt="Search icon" />
+                <Text variant={'span'} style={{color:'white',padding: 10}}>Search</Text>
                 <input type="text" className='input-search' placeholder='Search for a link' value={value} onChange={(e) => onChange(e.target.value)} />
+                 <button type='button' className='add-button' onClick={onAddClick}>Add Link  </button>
             </div>
 
         </nav>

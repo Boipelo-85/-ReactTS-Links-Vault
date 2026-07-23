@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 
 import './App.css'
-import { Text } from './components/Text/Text'
+
 import { FaLink } from 'react-icons/fa'
 import { Header } from './components/Header/Header'
-import { Hero } from './components/Hero/Hero'
+
 import { MidLinks } from './components/Mid-links/MidLinks'
 import { LinkForm } from './components/LinkForm/LinkForm'
 import type { LinkAttribute } from './components/Types/Link'
@@ -21,7 +21,7 @@ function App() {
 
   const [showForm, setShowForm] = useState(false)
   const [notification, setNotification] = useState('')
-
+  const [editLinks, setEditLinks] = useState<LinkAttribute | null>(null)
   // const [showAllLinks,setShowAllLinks] = useState(false)
 
   useEffect(() => {
@@ -53,8 +53,40 @@ function App() {
     window.setTimeout(() => {
       setNotification('')
     }, 3000)
+    
   }
 
+  const handleEdit = (id : string, tittle : string, url : string ,description : string , tags?:string ) => {
+
+      const handleAddLink = links.map((updated) => {
+
+              if(updated.id === id){
+
+                    const updatedLinks: LinkAttribute = {
+
+                          id : updated.id,
+                          title:updated.title,
+                          url : updated.url,
+                          description : updated.description,
+                          tags : updated.tags
+
+                    }
+
+                    return updatedLinks
+              }else {
+
+                  return updated
+              }
+
+      })
+
+      setLinks(handleAddLink)
+      localStorage.setItem("links",JSON.stringify(handleAddLink))
+      setShowForm(false)
+      setEditLinks(null)
+      setNotification('Link updated!')
+
+  }
   const SearchLinkInfo =() => {
 
       if(search.length==0){
@@ -71,11 +103,21 @@ function App() {
           attribute.description.toLowerCase().includes(keyWord)||
           (attribute.tags ? attribute.tags?.toLowerCase().includes(keyWord) : false)
 
+          
+          
     )
   }
 
-// const searItems = SearchLinkInfo 
+  if (showForm)
+      if(editLinks) {
 
+          // <LinkForm 
+          //   onAdd={}
+          // />
+
+
+      }
+const searItems = SearchLinkInfo()
 
   return (
     <div id='app-container'>
@@ -87,13 +129,13 @@ function App() {
       </div>
 
       <div id='main-content'>
-        <Header value={search} onWordChange={setSearch} />
+        <Header value={search} onWordChange={setSearch} onAddClick={() => setShowForm(true)} />
 
         <div id='mid-content'>
           <div id='card-table'>
-               <LinkCard links={links} onRemove={handleRemove} />
-          </div>
+               {/* <LinkCard links={searItems} onRemove={handleRemove} onEdit={handleEdit}  /> */}
 
+          </div>
 
         </div>
         
@@ -101,7 +143,6 @@ function App() {
           <Hero />
         </div> */}
 
-        
         <div id='mid-linkss'>
           <MidLinks onAddClick={() => setShowForm(true)}   />
         </div>

@@ -8,10 +8,10 @@ type addProp = {
 }
 
 export const LinkForm: React.FC<addProp> = ({ onAdd, onClose }) => {
-  const [title, setTitle] = useState(() => localStorage.getItem('link-form.title') || '')
-  const [url, setUrl] = useState(() => localStorage.getItem('link-form.url') || '')
-  const [description, setDescription] = useState(() => localStorage.getItem('link-form.description') || '')
-  const [tags, setTags] = useState(() => localStorage.getItem('link-form.tags') || 'work')
+  const [title, setTitle] = useState('')
+  const [url, setUrl] = useState('')
+  const [description, setDescription] =useState ('')
+  const [tags, setTags] = useState( '')
   const [error, setError] = useState('')
 
   useEffect(() => {
@@ -58,20 +58,26 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onClose }) => {
 
       )}
       <div className='form-row'>
-        <label htmlFor='link-title'>Title:</label>
+        <label className='link-title'>Title:</label>
         <input id='link-title' type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
       </div>
       <div className='form-row'>
-        <label htmlFor='link-url'>URL:</label>
+        <label className='link-url'>URL:</label>
         <input id='link-url' type='url' value={url} onChange={(e) => setUrl(e.target.value)} />
       </div>
       <div className='form-row'>
-        <label htmlFor='link-description'>Description:</label>
+        <label className='link-description'>Description:</label>
         <input id='link-description' type='text'  value={description} onChange={(e) => setDescription(e.target.value)} />
       </div>
       <div className='form-row'>
-        <label htmlFor='link-tags'>Tags:</label>
-        <input id='link-tags' type='text'  value={tags} onChange={(e) => setTags(e.target.value)} />
+        <label className='link-tags'>Tags:</label>
+        <select name="" id="link-tags"  value={tags} onChange={(e) => setTags(e.target.value)}>
+          <option value=""></option>
+            <option value="Work">Work</option>
+            <option value="School">School</option>
+            <option value="Church">Church</option>
+            <option value="Music">Music</option>
+        </select>
       </div>
 
       {error ? <p>{error}</p> : null}
