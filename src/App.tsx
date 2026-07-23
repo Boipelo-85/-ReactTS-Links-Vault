@@ -20,8 +20,8 @@ function App() {
   })
 
   const [showForm, setShowForm] = useState(false)
-  const [notification, setNotification] = useState('')
-  const [editLinks, setEditLinks] = useState<LinkAttribute | null>(null)
+  const [notification] = useState('')
+  const [editLinks, ] = useState<LinkAttribute | null>(null)
   // const [showAllLinks,setShowAllLinks] = useState(false)
 
   useEffect(() => {
@@ -37,76 +37,76 @@ function App() {
     setShowForm(false)
   }
 
-  const handleRemove = (id: string) => {
-    if (!window.confirm('Are you sure you want to remove this link row?')) {
-      return
-    }
+  // const handleRemove = (id: string) => {
+  //   if (!window.confirm('Are you sure you want to remove this link row?')) {
+  //     return
+  //   }
 
-    const savedLinks = localStorage.getItem('links')
-    const currentLinks: LinkAttribute[] = savedLinks ? JSON.parse(savedLinks) : []
-    const updatedLinks = currentLinks.filter((link) => link.id !== id)
+  //   const savedLinks = localStorage.getItem('links')
+  //   const currentLinks: LinkAttribute[] = savedLinks ? JSON.parse(savedLinks) : []
+  //   const updatedLinks = currentLinks.filter((link) => link.id !== id)
 
-    localStorage.setItem('links', JSON.stringify(updatedLinks))
-    setLinks(updatedLinks)
-    setNotification('Link removed successfully')
+  //   localStorage.setItem('links', JSON.stringify(updatedLinks))
+  //   setLinks(updatedLinks)
+  //   setNotification('Link removed successfully')
 
-    window.setTimeout(() => {
-      setNotification('')
-    }, 3000)
+  //   window.setTimeout(() => {
+  //     setNotification('')
+  //   }, 3000)
     
-  }
+  // }
 
-  const handleEdit = (id : string, tittle : string, url : string ,description : string , tags?:string ) => {
+  // const handleEdit = (id : string, tittle : string, url : string ,description : string , tags?:string ) => {
 
-      const handleAddLink = links.map((updated) => {
+  //     const handleAddLink = links.map((updated) => {
 
-              if(updated.id === id){
+  //             if(updated.id === id){
 
-                    const updatedLinks: LinkAttribute = {
+  //                   const updatedLinks: LinkAttribute = {
 
-                          id : updated.id,
-                          title:updated.title,
-                          url : updated.url,
-                          description : updated.description,
-                          tags : updated.tags
+  //                         id : updated.id,
+  //                         title:updated.title,
+  //                         url : updated.url,
+  //                         description : updated.description,
+  //                         tags : updated.tags
 
-                    }
+  //                   }
 
-                    return updatedLinks
-              }else {
+  //                   return updatedLinks
+  //             }else {
 
-                  return updated
-              }
+  //                 return updated
+  //             }
 
-      })
+  //     })
 
-      setLinks(handleAddLink)
-      localStorage.setItem("links",JSON.stringify(handleAddLink))
-      setShowForm(false)
-      setEditLinks(null)
-      setNotification('Link updated!')
+  //     setLinks(handleAddLink)
+  //     localStorage.setItem("links",JSON.stringify(handleAddLink))
+  //     setShowForm(false)
+  //     setEditLinks(null)
+  //     setNotification('Link updated!')
 
-  }
-  const SearchLinkInfo =() => {
+  // }
+  // const SearchLinkInfo =() => {
 
-      if(search.length==0){
+  //     if(search.length==0){
 
-          return links
-      }
+  //         return links
+  //     }
 
-      const keyWord = search.toLocaleLowerCase().trim()
+  //     const keyWord = search.toLocaleLowerCase().trim()
 
-      return links.filter((attribute) => 
+  //     return links.filter((attribute) => 
     
-          attribute.title.toLowerCase().includes(keyWord) || 
-          attribute.url.toLowerCase().includes(keyWord) ||
-          attribute.description.toLowerCase().includes(keyWord)||
-          (attribute.tags ? attribute.tags?.toLowerCase().includes(keyWord) : false)
+  //         attribute.title.toLowerCase().includes(keyWord) || 
+  //         attribute.url.toLowerCase().includes(keyWord) ||
+  //         attribute.description.toLowerCase().includes(keyWord)||
+  //         (attribute.tags ? attribute.tags?.toLowerCase().includes(keyWord) : false)
 
           
           
-    )
-  }
+  //   )
+  // }
 
   if (showForm)
       if(editLinks) {
@@ -117,7 +117,7 @@ function App() {
 
 
       }
-const searItems = SearchLinkInfo()
+// const searItems = SearchLinkInfo()
 
   return (
     <div id='app-container'>

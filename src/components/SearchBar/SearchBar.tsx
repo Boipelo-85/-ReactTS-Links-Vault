@@ -1,5 +1,5 @@
 import React from 'react'
-import searchBar from '../../assets/searchbar.png'
+
 import { FaLink } from 'react-icons/fa';
 import { Text } from '../Text/Text';
 
