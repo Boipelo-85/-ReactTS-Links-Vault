@@ -5,6 +5,7 @@ import type { LinkAttribute } from '../Types/Link'
 type addProp = {
   onAdd: (link: LinkAttribute) => void
   onClose?: () => void
+  
 }
 
 export const LinkForm: React.FC<addProp> = ({ onAdd, onClose }) => {
@@ -24,7 +25,7 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onClose }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (!title.trim() || !url.trim() || !description.trim() || !tags.trim()) {
+    if (!title.trim() || !url.trim() || !description.trim() || !tags.trim()){
       setError('All values must be entered!')
       return
     }

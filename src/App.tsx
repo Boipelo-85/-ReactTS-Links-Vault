@@ -49,44 +49,43 @@ function App() {
     localStorage.setItem('links', JSON.stringify(updatedLinks))
     setLinks(updatedLinks)
     setNotification('Link removed successfully')
-
+    
     window.setTimeout(() => {
       setNotification('')
     }, 3000)
   }
 
-  const handleEdit = (id : string, tittle : string, url : string ,description : string , tags?:string ) => {
-
-      const handleAddLink = links.map((updated) => {
-
-              if(updated.id === id){
-
-                    const updatedLinks: LinkAttribute = {
-
-                          id : updated.id,
-                          title:updated.title,
-                          url : updated.url,
-                          description : updated.description,
-                          tags : updated.tags
-
-                    }
-
-                    return updatedLinks
-              }else {
-
-                  return updated
-              }
-
-
-      })
-
-      setLinks(handleAddLink)
-      localStorage.setItem("links",JSON.stringify(handleAddLink))
-      setShowForm(false)
-      setEditLinks(null)
-      setNotification('Link updated!')
-
+  const handleOpenEdit = (id: string) => {
+    const linkToEdit = links.find((link) => link.id === id)
+    if (linkToEdit) {
+      setEditLinks(linkToEdit)   // ← store the link we want to edit
+      setShowForm(true)          // ← open the form
+    }
   }
+
+  // ── SAVE edit — updates the link in state and localStorage ──
+ 
+  const handleEdit = (id: string, title: string, url: string, description: string, tags?: string) => {
+  const updatedLinks = links.map((link) => {
+    if (link.id === id) {
+      return {
+        id: link.id,
+        title: title,           
+        url: url,               
+        description: description, 
+        tags: tags             
+      }
+    }
+    return link
+  })
+  setLinks(updatedLinks)
+  localStorage.setItem('links', JSON.stringify(updatedLinks))
+  setShowForm(false)
+  setEditLinks(null)
+  setNotification('✅ Link updated successfully!')
+  setTimeout(() => setNotification(''), 3000)
+}
+
   const SearchLinkInfo =() => {
 
       if(search.length==0){
@@ -96,8 +95,8 @@ function App() {
 
       const keyWord = search.toLocaleLowerCase().trim()
 
-      return links.filter((attribute) => 
-    
+      return links.filter((attribute) =>
+
           attribute.title.toLowerCase().includes(keyWord) || 
           attribute.url.toLowerCase().includes(keyWord) ||
           attribute.description.toLowerCase().includes(keyWord)||
@@ -105,20 +104,13 @@ function App() {
 
     )
   }
- let contentPopUp = null 
 
-  if (showForm)
-      if(editLinks) {
-
-              
-      }
 const searItems = SearchLinkInfo()
 
   return (
     <div id='app-container'>
       <div className='Project-Name'>
        
-
       </div>
 
       <div id='main-content'>
@@ -129,9 +121,9 @@ const searItems = SearchLinkInfo()
         
         <div id='mid-content'>
           <div id='card-table'>
-               <LinkCard   links={searItems} onRemove={handleRemove}  searchLinks={search}  onEdit={} />
+               <LinkCard   links={searItems} onRemove={handleRemove}  searchLinks={search}  onEdit={handleOpenEdit} />
           </div>
-
+        
         </div>
               
         {/* <div>
@@ -141,6 +133,14 @@ const searItems = SearchLinkInfo()
         {/* <div id='mid-linkss'>
           <MidLinks onAddClick={() => setShowForm(true)}   />
         </div> */}
+
+        {notification && (
+          <p className='link-notification' role='status'>
+            {notification}
+          </p>
+
+        )}
+
 
         {showForm && (
           <div
@@ -158,18 +158,13 @@ const searItems = SearchLinkInfo()
               
               <h2 id='link-form-title'>Add a link</h2>
              
-              <LinkForm onAdd={handleAddLink} onClose={handleCloseForm} />
+              <LinkForm onAdd={handleAddLink} onClose={handleCloseForm}  />
 
             </div>
             
           </div>
         )}
-        {notification && (
-          <p className='link-notification' role='status'>
-            {notification}
-          </p>
-
-        )}
+        
         <div>
         </div>
       </div>

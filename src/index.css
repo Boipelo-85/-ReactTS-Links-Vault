@@ -504,6 +504,7 @@ h1 {
 }
 
 /* table content here */
+
 .tableContent {
 
   width: 100%;
@@ -511,7 +512,12 @@ h1 {
   margin-right: 12px;
 
 }
+.logoImage{
 
+    width: 50%;
+    height: 50%;
+
+}
 .data-content {
 
   color: #08060d;
@@ -521,6 +527,7 @@ h1 {
 /* Keep each row aligned with the header and inside the content panel. */
 
 .tableContent {
+
   width: calc(100% - 24px);
   max-width: 100%;
   table-layout: fixed;
@@ -662,16 +669,12 @@ h1 {
 
     border-radius: 2px;
 }
-.remove-button:hover {
-
-      
-
-}
 
 .edit-button:hover {
 
   color: #000;
   background-color: #f8ffde;
+
 
 }
 
