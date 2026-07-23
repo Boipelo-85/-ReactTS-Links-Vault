@@ -156,6 +156,7 @@ code {
 }
 
 /* NavPart */
+
 .nav {
   position: relative;
   width: 100%;
@@ -180,17 +181,9 @@ code {
 .searchBar-content {
 
     display: flex;
-
+    gap: 5px;
 }
 
-.search {
-
-    width: 30px;
-    padding: 0 2px;
-    color:#fdfdfd;
-    height: 42px;
-    padding-left: 0px;
-}
 
 .input-search {
 
@@ -199,6 +192,10 @@ code {
   border: 1px solid black;
   box-sizing: border-box;
   min-width: 0;
+  border-radius: 10px;
+  color : #000;
+  background-color: #9ca3af;
+
 }
 
 @media (max-width: 1024px) {
@@ -380,6 +377,7 @@ h1 {
 
 .add-button {
 
+
   font-family: 'Courier New', Courier, monospace;
   color: #08060d;
   font-weight: bold;
@@ -387,13 +385,14 @@ h1 {
   cursor: pointer;
   padding: 8px 30px;
   background-color: #bade58;
-
+  width: 100%;
+  border-radius: 10px;
 }
 
 .add-button:hover {
 
-  color: #fdfdfd;
-  background-color: black;
+  color: #000;
+  background-color: #f8ffde;
 
 
 }
@@ -653,17 +652,27 @@ h1 {
 
 /* Actions part */
 
+.edit-button{
+
+    background-color: black;
+    color: #fdfdfd;
+    border-radius: 2px;
+}
+.remove-button{
+
+    border-radius: 2px;
+}
 .remove-button:hover {
 
-  color: #fdfdfd;
-  background-color: black;
+      
 
 }
 
 .edit-button:hover {
 
-  color: #fdfdfd;
-  background-color: black;
+  color: #000;
+  background-color: #f8ffde;
+
 }
 
 .link-notification {

@@ -17,7 +17,7 @@ export const SearchBar :React.FC<SearchProp> = ({value,onChange,onAddClick}) => 
             <div className='Heading-items'>
                 <div>
                     <span> <FaLink /> </span>
-                    <span> Link-Vault Solutions  </span>
+                    <span style={{fontFamily:'    '}}> Link-Vault  </span>
                 </div>
 
                  {/* <div className='homeName'>
@@ -27,11 +27,11 @@ export const SearchBar :React.FC<SearchProp> = ({value,onChange,onAddClick}) => 
             </div>
 
             <div className='searchBar-content'>
-                <Text variant={'span'} style={{color:'white',padding: 10}}>Search</Text>
+                {/* <Text variant={'span'} style={{color:'white',padding: 10}}>Search</Text> */}
                 <input type="text" className='input-search' placeholder='Search for a link' value={value} onChange={(e) => onChange(e.target.value)} />
-                 <button type='button' className='add-button' onClick={onAddClick}>Add Link  </button>
+                 <button type='button' className='add-button' onClick={onAddClick}>Add Link </button>
             </div>
-
+ 
         </nav>
     </div>
   )
