@@ -73,11 +73,11 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onEdit, onClose, editLink }
       <div className='form-row'>
         <label className='link-title'>Title:</label>
         <input id='link-title' type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
-      </div>
+      </div>   
       <div className='form-row'>
         <label className='link-url'>URL:</label>
         <input id='link-url' type='url' value={url} onChange={(e) => setUrl(e.target.value)} />
-      </div>
+      </div>    
       <div className='form-row'>
         <label className='link-description'>Description:</label>
         <input id='link-description' type='text'  value={description} onChange={(e) => setDescription(e.target.value)} />
@@ -88,7 +88,7 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onEdit, onClose, editLink }
           <option value=""></option>
             <option value="Work">Work</option>
             <option value="School">School</option>
-            <option value="Church">Church</option>
+            <option value="Church">Church</option> 
             <option value="Music">Music</option>
         </select>
       </div>
