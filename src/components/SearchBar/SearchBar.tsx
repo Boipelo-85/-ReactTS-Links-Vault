@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { FaLink } from 'react-icons/fa';
-import { Text } from '../Text/Text';
+
 
 type SearchProp = {
 
