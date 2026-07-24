@@ -16,7 +16,7 @@ export const LinkCardItem: React.FC<ItemsProps> = ({ attribute, onRemove,onEdit 
 
             <tr className='data-content'>
                     <td>{attribute.title}</td>
-                    <td>  {attribute.url}  </td>
+                    <td> <a href={attribute.url} target="_blank">{attribute.url} </a> </td>
                      <td> {attribute.description}</td>
                     <td> {attribute.tags}</td>
                     <td>
