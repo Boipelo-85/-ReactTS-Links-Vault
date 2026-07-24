@@ -17,7 +17,7 @@ export const SearchBar :React.FC<SearchProp> = ({value,onChange,onAddClick}) => 
             <div className='Heading-items'>
                 <div>
                     <span> <FaLink /> </span>
-                    <span style={{fontFamily:'    '}}> Link-Vault  </span>
+                    <span style={{fontFamily:'Great Vibes',fontWeight: 'bold',color : '#fdfdfd'}}> Link-Vault  </span>
                 </div>
 
                  {/* <div className='homeName'>

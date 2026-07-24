@@ -4,16 +4,26 @@ import type { LinkAttribute } from '../Types/Link'
 
 type addProp = {
   onAdd: (link: LinkAttribute) => void
+  onEdit?: (id: string, title: string, url: string, description: string, tags?: string) => void
   onClose?: () => void
-  
+  editLink?: LinkAttribute | null
 }
 
-export const LinkForm: React.FC<addProp> = ({ onAdd, onClose }) => {
+export const LinkForm: React.FC<addProp> = ({ onAdd, onEdit, onClose, editLink }) => {
   const [title, setTitle] = useState('')
   const [url, setUrl] = useState('')
   const [description, setDescription] =useState ('')
   const [tags, setTags] = useState( '')
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    if (editLink) {
+      setTitle(editLink.title)
+      setUrl(editLink.url)
+      setDescription(editLink.description)
+      setTags(editLink.tags || '')
+    }
+  }, [editLink])
 
   useEffect(() => {
     localStorage.setItem('link-form.title', title)
@@ -25,28 +35,30 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onClose }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (!title.trim() || !url.trim() || !description.trim() || !tags.trim()){
-      setError('All values must be entered!')
+    if (!title.trim() || !url.trim() || !description.trim()){
+      setError('Title, URL, and Description are required!')
       return
     }
 
     setError('')
 
-    const newLink: LinkAttribute = {
-      id :  Date.now().toString(),
-      title: title.trim(),
-      url: url.trim(),
-      description: description.trim(),
-      tags: tags.trim(),
+    if (editLink && onEdit) {
+      onEdit(editLink.id, title.trim(), url.trim(), description.trim(), tags.trim())
+    } else {
+      const newLink: LinkAttribute = {
+        id: Date.now().toString(),
+        title: title.trim(),
+        url: url.trim(),
+        description: description.trim(),
+        tags: tags.trim(),
+      }
+      onAdd(newLink)
     }
-
-    onAdd(newLink)
 
     setTitle('')
     setUrl('')
     setDescription('')
     setTags('')
-
   }
 
   return (

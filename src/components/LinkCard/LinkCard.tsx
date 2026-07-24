@@ -1,4 +1,4 @@
-import { FaLink } from "react-icons/fa";
+
 import { Text } from "../Text/Text";
 import type { LinkAttribute } from "../Types/Link";
 import { LinkCardItem } from "./LinkCardItem";
@@ -12,14 +12,13 @@ type CloseProp = {
   onEdit : (id: string) => void 
   searchLinks : string 
 }
-
 export const LinkCard: React.FC<CloseProp> = ({ links, onRemove, onClose,searchLinks,onEdit }) => {
 
     if (links.length === 0) {
 
           if(searchLinks.trim().length > 0){
 
-                  return <Text variant={'h3'} style={{color:'red'}}> {searchLinks} is not found in the links </Text>               
+                  return <Text variant={'h3'} style={{color:'red'}}> {searchLinks}  not found in the links </Text>               
                   
           }else{
 
@@ -28,7 +27,8 @@ export const LinkCard: React.FC<CloseProp> = ({ links, onRemove, onClose,searchL
                     <>
 
                       <img src={webLink} alt=" the website logo typa. " className= 'logoImage' />
-                      <Text variant={'h3'} style={{color:'grey'}}> Great start to add your links at the right top </Text>
+                      <Text variant={'h2'} style={{color:'grey'}}>Your vault is empty!</Text>
+                      <Text variant={'h3'} style={{color:'grey'}}> Start saving links you love at the right top and access them anytime, anywhere. </Text>
                        
                     </>
                 )
@@ -44,7 +44,7 @@ export const LinkCard: React.FC<CloseProp> = ({ links, onRemove, onClose,searchL
         </button>
       )}
 
-      <table border={1.5}  className='tableContent'>
+      <table border={2}  className='tableContent'>
 
           <thead >
 
