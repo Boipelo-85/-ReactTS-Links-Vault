@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 
 import './App.css'
-import { Text } from './components/Text/Text'
-import { FaLink } from 'react-icons/fa'
+
 import { Header } from './components/Header/Header'
 
-import { MidLinks } from './components/Mid-links/MidLinks'
+ 
 import { LinkForm } from './components/LinkForm/LinkForm'
 import type { LinkAttribute } from './components/Types/Link'
 import { LinkCard } from './components/LinkCard/LinkCard';
@@ -21,7 +20,7 @@ function App() {
 
   const [showForm, setShowForm] = useState(false)
   const [notification, setNotification] = useState('')
-  const [editLinks, setEditLinks] = useState<LinkAttribute | null>(null)
+  const [editLinks , setEditLinks] = useState<LinkAttribute | null>(null)
   // const [showAllLinks,setShowAllLinks] = useState(false)
 
   useEffect(() => {
@@ -58,8 +57,8 @@ function App() {
   const handleOpenEdit = (id: string) => {
     const linkToEdit = links.find((link) => link.id === id)
     if (linkToEdit) {
-      setEditLinks(linkToEdit)   // ← store the link we want to edit
-      setShowForm(true)          // ← open the form
+      setEditLinks(linkToEdit)   
+      setShowForm(true)          
     }
   }
 
@@ -123,7 +122,7 @@ const searItems = SearchLinkInfo()
           <div id='card-table'>
                <LinkCard   links={searItems} onRemove={handleRemove}  searchLinks={search}  onEdit={handleOpenEdit} />
           </div>
-        
+
         </div>
               
         {/* <div>
@@ -164,6 +163,9 @@ const searItems = SearchLinkInfo()
             
           </div>
         )}
+
+
+        
         
         <div>
         </div>
