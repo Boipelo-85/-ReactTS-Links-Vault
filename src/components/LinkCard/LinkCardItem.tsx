@@ -15,9 +15,9 @@ export const LinkCardItem: React.FC<ItemsProps> = ({ attribute, onRemove,onEdit 
     return (
 
             <tr className='data-content'>
-                    <td>{attribute.title}</td>
-                    <td> <a href={attribute.url} target="_blank">{attribute.url} </a> </td>
-                     <td> {attribute.description}</td>
+                    <td >{attribute.title}</td>
+                    <td > <a href={attribute.url} target="_blank"  >{attribute.url} </a></td>
+                     <td className='tableData'> {attribute.description}</td>
                     <td> {attribute.tags}</td>
                     <td>
                         <button className='edit-button'

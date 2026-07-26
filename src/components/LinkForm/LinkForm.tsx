@@ -35,9 +35,17 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onEdit, onClose, editLink }
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (!title.trim() || !url.trim() || !description.trim()){
-      setError('Title, URL, and Description are required!')
+    if (!title.trim() ){
+      setError('Title is required!')
       return
+    }else if(!url.trim() ){
+
+        setError('Url is required !')
+        return
+    }else if(!description.trim()){
+
+        setError('Description is required!')
+        return
     }
 
     setError('')
@@ -84,13 +92,7 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onEdit, onClose, editLink }
       </div>
       <div className='form-row'>
         <label className='link-tags'>Tags:</label>
-        <select name="" id="link-tags"  value={tags} onChange={(e) => setTags(e.target.value)}>
-          <option value=""></option>
-            <option value="Work">Work</option>
-            <option value="School">School</option>
-            <option value="Church">Church</option> 
-            <option value="Music">Music</option>
-        </select>
+        <input type="text" name="" id="link-tags"  value={tags} onChange={(e) => setTags(e.target.value)}/>
       </div>
 
       {error ? <p>{error}</p> : null}

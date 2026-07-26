@@ -128,7 +128,7 @@ h2 {
     font-size: 20px;
   }
 }
-    
+
 p {
   margin: 0;
 }
@@ -180,8 +180,8 @@ code {
 
 .searchBar-content {
 
-    display: flex;
-    gap: 5px;
+  display: flex;
+  gap: 5px;
 }
 
 
@@ -193,7 +193,7 @@ code {
   box-sizing: border-box;
   min-width: 0;
   border-radius: 10px;
-  color : #000;
+  color: #000;
   background-color: #cdced1;
 
 
@@ -483,10 +483,10 @@ h1 {
   height: 30px;
   min-width: 30px;
   padding-top: 0;
-  align-self:flex-end;
+  align-self: flex-end;
   cursor: pointer;
   background-color: #eaece3;
-  
+
 }
 
 .add-link-button {
@@ -499,7 +499,7 @@ h1 {
   background-color: #000;
   color: #fdfdfd;
   font-weight: bold;
-  
+
 
 }
 
@@ -520,19 +520,29 @@ h1 {
   margin-right: 12px;
 
 }
-.logoImage{
 
-    width: 50%;
-    height: 50%;
+.logoImage {
+
+  width: 50%;
+  height: 50%;
 
 }
+
 .data-content {
 
   color: #08060d;
   align-items: start;
+ 
 
 }
+.tableData{
 
+    text-overflow: ellipsis;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
 /* Keep each row aligned with the header and inside the content panel. */
 
 .tableContent {
@@ -551,14 +561,17 @@ h1 {
   vertical-align: top;
   overflow-wrap: anywhere;
   text-align: left;
+  
 }
-.tableContent th{
 
-      color: black;
+.tableContent th {
+
+  color: black;
 }
-.tableContent td{
 
-      color: rgb(78, 76, 76);
+.tableContent td {
+
+  color: rgb(78, 76, 76);
 }
 
 .tableContent th:nth-child(1),
@@ -606,7 +619,7 @@ h1 {
   .tableContent th,
   .tableContent td {
     display: block;
-    
+
   }
 
   .tableContent {
@@ -639,6 +652,10 @@ h1 {
     text-align: left;
     border: 0;
     border-bottom: 1px solid #e5e4e7;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .tableContent td::before {
@@ -679,16 +696,17 @@ h1 {
 
 /* Actions part */
 
-.edit-button{
+.edit-button {
 
-    background-color: black;
-    color: #fdfdfd;
-    border-radius: 10px;
+  background-color: black;
+  color: #fdfdfd;
+  border-radius: 10px;
 }
-.remove-button{
 
-    
-    border-radius: 10px;
+.remove-button {
+
+
+  border-radius: 10px;
 }
 
 .edit-button:hover {
