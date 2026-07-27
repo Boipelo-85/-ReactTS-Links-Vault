@@ -94,13 +94,14 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onEdit, onClose, editLink }
         <label className='link-description'>Description:</label>
         <input id='link-description' type='text'  value={description} onChange={(e) => setDescription(e.target.value)} />
       </div>
+
       <div className='form-row'>
         <label className='link-tags'>Tags:</label>
         <input type="text" name="" id="link-tags"  value={tags} onChange={(e) => setTags(e.target.value)}/>
       </div>
-
+      
       {error ? <p>{error}</p> : null}
-      <Button label=' ADD LINK '  className='add-link-button'/>
+      <Button label={editLink ? ' EDIT LINK ' : ' ADD LINK '}  className='add-link-button'/>
     </form>
     
   )

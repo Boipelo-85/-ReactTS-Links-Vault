@@ -19,7 +19,7 @@ export const LinkCard: React.FC<CloseProp> = ({ links, onRemove, onClose, search
 
     if (searchLinks.trim().length > 0) {
 
-      return <Text variant={'h3'} style={{ color: 'red' }}> {searchLinks}  not found in the links </Text>
+      return <Text variant={'h3'} style={{ color: 'black' }}> {searchLinks}  not found in the links </Text>
 
     } else {
 

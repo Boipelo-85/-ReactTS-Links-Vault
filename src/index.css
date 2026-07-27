@@ -552,6 +552,15 @@ h1 {
     overflow: hidden;
 
 }
+
+.tableData.expanded{
+
+    text-overflow: unset;
+    max-width: unset;
+    white-space: normal;
+    overflow: visible;
+
+}
 /* Keep each row aligned with the header and inside the content panel. */
 
 .tableContent {

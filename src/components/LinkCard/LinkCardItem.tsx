@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import type { LinkAttribute } from '../Types/Link';
 
 
@@ -10,6 +10,7 @@ export type ItemsProps = {
 }
 
 export const LinkCardItem: React.FC<ItemsProps> = ({ attribute, onRemove,onEdit }) => {
+    const [isExpanded, setIsExpanded] = useState(false)
 
 
     return (
@@ -17,7 +18,13 @@ export const LinkCardItem: React.FC<ItemsProps> = ({ attribute, onRemove,onEdit 
             <tr className='data-content'>
                     <td >{attribute.title}</td>
                     <td > <a href={attribute.url} target="_blank"  >{attribute.url} </a></td>
-                     <td className='tableData'> {attribute.description}</td>
+                     <td 
+                        className={`tableData ${isExpanded ? 'expanded' : ''}`}
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        style={{ cursor: 'pointer' }}
+                    > 
+                        {attribute.description}
+                    </td>
                     <td> {attribute.tags}</td>
                     <td>
                         <button className='edit-button'
