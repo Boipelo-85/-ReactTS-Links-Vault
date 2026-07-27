@@ -113,7 +113,7 @@ const searItems = SearchLinkInfo()
         
         <div id='mid-content'>
           <div id='card-table'>
-               <LinkCard   links={searItems} onRemove={handleRemove}  searchLinks={search}  onEdit={handleOpenEdit} />
+               <LinkCard   links={searItems} onRemove={handleRemove}  searchLinks={search}  onEdit={handleOpenEdit} onAddClick={() => setShowForm(true)}/>
           </div>
 
         </div>

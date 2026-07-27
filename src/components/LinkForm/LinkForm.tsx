@@ -35,10 +35,14 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onEdit, onClose, editLink }
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (!title.trim() ){
-      setError('Title is required!')
+    if (!title.trim() || !url.trim() || !description.trim() ){
+      setError('All field must be entered!')
       return
-    }else if(!url.trim() ){
+    }else if (!title.trim()){
+
+          setError('Url is required')
+          return
+    } else if(!url.trim() ){
 
         setError('Url is required !')
         return

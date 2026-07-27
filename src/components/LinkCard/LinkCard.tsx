@@ -9,31 +9,32 @@ type CloseProp = {
   links: LinkAttribute[]
   onRemove: (id: string) => void
   onClose?: () => void
-  onEdit : (id: string) => void 
-  searchLinks : string 
+  onEdit: (id: string) => void
+  searchLinks: string
+  onAddClick: () => void
 }
-export const LinkCard: React.FC<CloseProp> = ({ links, onRemove, onClose,searchLinks,onEdit }) => {
+export const LinkCard: React.FC<CloseProp> = ({ links, onRemove, onClose, searchLinks, onEdit, onAddClick }) => {
 
-    if (links.length === 0) {
+  if (links.length === 0) {
 
-          if(searchLinks.trim().length > 0){
+    if (searchLinks.trim().length > 0) {
 
-                  return <Text variant={'h3'} style={{color:'red'}}> {searchLinks}  not found in the links </Text>               
-                  
-          }else{
+      return <Text variant={'h3'} style={{ color: 'red' }}> {searchLinks}  not found in the links </Text>
 
-                return (
+    } else {
 
-                    <>
+      return (
 
-                      <img src={webLink} alt=" the website logo typa. " className= 'logoImage' />
-                      <Text variant={'h2'} style={{color:'grey'}}>Your vault is empty!</Text>
-                      <Text variant={'h3'} style={{color:'grey'}}> Start saving links you love at the right top and access them anytime, anywhere. </Text>
-                       
-                    </>
-                )
-          }
+        <>
+
+          <img src={webLink} alt=" the website logo typa. " className='logoImage' />
+          <Text variant={'h2'} style={{ color: 'grey' }}>Your vault is empty!</Text>
+          <Text variant={'h3'} style={{ color: 'grey' }}> Start saving links you love at the right top and access them anytime, anywhere. </Text>
+          <button type='button' className='stateButton' onClick={onAddClick}> Add Link </button>
+        </>
+      )
     }
+  }
 
   return (
 
@@ -44,38 +45,38 @@ export const LinkCard: React.FC<CloseProp> = ({ links, onRemove, onClose,searchL
         </button>
       )}
 
-      <table border={2}  className='tableContent'>
+      <table border={2} className='tableContent'>
 
-          <thead >
+        <thead >
 
-            <tr>
+          <tr>
             <th>Title</th>
             <th>URL</th>
             <th>Description</th>
             <th>Tags</th>
-             <th>Actions</th>
-            </tr>
+            <th>Actions</th>
+          </tr>
 
-          </thead>
+        </thead>
 
-          <tbody>
-        {
-          links.map(link => (
-      
+        <tbody>
+          {
+            links.map(link => (
+
               <LinkCardItem
 
                 key={link.id}
                 attribute={link}
                 onRemove={onRemove}
-                onEdit={onEdit}  
-                
+                onEdit={onEdit}
+
               />
 
-          ))
-        }
+            ))
+          }
 
         </tbody>
-        </table>
+      </table>
 
     </div>
 
