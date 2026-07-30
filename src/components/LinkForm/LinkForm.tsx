@@ -89,7 +89,7 @@ export const LinkForm: React.FC<addProp> = ({ onAdd, onEdit, onClose, editLink }
       <div className='form-row'>
         <label className='link-url'>URL:</label>
         <input id='link-url' type='url' value={url} onChange={(e) => setUrl(e.target.value)} />
-      </div>    
+      </div>
       <div className='form-row'>
         <label className='link-description'>Description:</label>
         <input id='link-description' type='text'  value={description} onChange={(e) => setDescription(e.target.value)} />

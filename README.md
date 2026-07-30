@@ -6,22 +6,26 @@ A simple, intuitive and responsive **bookmark manager** web application built wi
  
 ##  Live Demo
  
-> [Add your hosted link here — e.g. https://linkvault.vercel.app]
+> [http://react-ts-links-vault-six.vercel.app]
  
 ---
  
 ## 📸 Screenshot
  
+![Sreenshot 1](src/assets/vault_1.png)
+![Sreenshot 2](src/assets/vault_2.png)
+![Sreenshot 3](src/assets/vault_3.png)
+![Sreenshot 4](src/assets/vault_4.png)
+![Sreenshot 5](src/assets/vault_5.png)
 
- 
 ---
  
 ##  Project Overview
- 
+
 This project was built as **Task 2 — ReactTS Links Vault** for the React TypeScript Bootcamp at **Tshwane University of Technology (TUT)**.
- 
+
 ### The Problem it Solves
- 
+
 Traditional browser bookmarks are limited to one browser on one device. **LinkVault** gives you a centralized place to save and manage your favorite links with titles, descriptions and tags — making them easy to find and organize.
  
 ---
@@ -129,8 +133,8 @@ type LinkAttribute = {
  
 ```bash
 # Clone the repository
-git clone https://github.com/boipelo/linkvault.git
- 
+git clone https://github.com/Boipelo-85/-ReactTS-Links-Vault.git
+
 # Navigate into the project
 cd -ReactTS-Links-Vault
  
@@ -212,14 +216,10 @@ const links = savedLinks ? JSON.parse(savedLinks) : []
 - Institution: Tshwane University of Technology (TUT)
 ---
  
-## License
- 
-This project is open source and available under the [MIT License](LICENSE).
- 
 ---
  
 ##  Acknowledgements
  
-- Built as part of the **ReactTS Bootcamp — Task 2** at TUT
+- Built as part of the **ReactTS mlab cohort — Task 2** at mlab cohort
 - Icons by [React Icons](https://react-icons.github.io/react-icons/)
 - Bootstrapped with [Vite](https://vitejs.dev/)

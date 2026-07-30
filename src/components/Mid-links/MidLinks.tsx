@@ -10,9 +10,10 @@ export const MidLinks = ({ onAddClick }: MidLinksProps) => {
            <div className='mid-button'>
 
                 <button type='button' className='add-button' onClick={onAddClick}> Add Link </button>
-              
+
             </div>
       </div>
 
   )
 }
+   
