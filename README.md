@@ -20,7 +20,7 @@ A simple, intuitive and responsive **bookmark manager** web application built wi
 
 ---
  
-##  Project Overview
+##  Project Overview   
 
 This project was built as **Task 2 — ReactTS Links Vault** for the React TypeScript Bootcamp at **Tshwane University of Technology (TUT)**.
 

@@ -41,10 +41,14 @@ function App() {
       return
     }
 
-    const updatedLinks = links.filter((link) => link.id !== id)
+    const savedLinks = localStorage.getItem('links')
+    const currentLinks: LinkAttribute[] = savedLinks ? JSON.parse(savedLinks) : []
+    const updatedLinks = currentLinks.filter((link) => link.id !== id)
+
+    localStorage.setItem('links', JSON.stringify(updatedLinks))
     setLinks(updatedLinks)
     setNotification('Link removed successfully')
-
+    
     window.setTimeout(() => {
       setNotification('')
     }, 3000)
@@ -58,25 +62,28 @@ function App() {
     }
   }
 
+  // ── SAVE edit — updates the link in state and localStorage ──
+ 
   const handleEdit = (id: string, title: string, url: string, description: string, tags?: string) => {
-    const updatedLinks = links.map((link) => {
-      if (link.id === id) {
-        return {
-          id: link.id,
-          title: title,
-          url: url,
-          description: description,
-          tags: tags
-        }
+  const updatedLinks = links.map((link) => {
+    if (link.id === id) {
+      return {
+        id: link.id,
+        title: title,           
+        url: url,               
+        description: description, 
+        tags: tags             
       }
-      return link
-    })
-    setLinks(updatedLinks)
-    setShowForm(false)
-    setEditLinks(null)
-    setNotification('✅ Link updated successfully!')
-    setTimeout(() => setNotification(''), 3000)
-  }
+    }
+    return link
+  })
+  setLinks(updatedLinks)
+  localStorage.setItem('links', JSON.stringify(updatedLinks))
+  setShowForm(false)
+  setEditLinks(null)
+  setNotification('✅ Link updated successfully!')
+  setTimeout(() => setNotification(''), 3000)
+}
 
   const SearchLinkInfo =() => {
 
@@ -113,10 +120,18 @@ const searItems = SearchLinkInfo()
         
         <div id='mid-content'>
           <div id='card-table'>
-               <LinkCard   links={searItems} onRemove={handleRemove}  searchLinks={search}  onEdit={handleOpenEdit} onAddClick={() => setShowForm(true)}/>
+               <LinkCard   links={searItems} onRemove={handleRemove}  searchLinks={search}  onEdit={handleOpenEdit} />
           </div>
 
         </div>
+              
+        {/* <div>
+          <Hero />
+        </div> */}
+  
+        {/* <div id='mid-linkss'>
+          <MidLinks onAddClick={() => setShowForm(true)}   />
+        </div> */}
 
         {notification && (
           <p className='link-notification' role='status'>
@@ -140,14 +155,17 @@ const searItems = SearchLinkInfo()
               onMouseDown={(event) => event.stopPropagation()}
             >
               
-              <h2 id='link-form-title'>{editLinks ? 'Edit link' : 'Add a link'}</h2>
+              <h2 id='link-form-title'>Add a link</h2>
              
-              <LinkForm onAdd={handleAddLink} onEdit={handleEdit} onClose={handleCloseForm} editLink={editLinks}  />
+              <LinkForm onAdd={handleAddLink} onClose={handleCloseForm}  />
 
             </div>
             
           </div>
         )}
+
+
+        
         
         <div>
         </div>

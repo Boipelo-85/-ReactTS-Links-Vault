@@ -17,5 +17,6 @@ export const Button : React.FC<ButtonProps> = ({label,className}) => {
             {label}
 
     </button>
+    
   )
 }
