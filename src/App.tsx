@@ -37,8 +37,9 @@ function App() {
   }
 
   const handleRemove = (id: string) => {
-    if (!window.confirm('Are you sure you want to remove this link row?')) {
+    if (!window.confirm('Are you sure you want to remove this link row?')){
       return
+
     }
 
     const savedLinks = localStorage.getItem('links')
@@ -120,7 +121,7 @@ const searItems = SearchLinkInfo()
         
         <div id='mid-content'>
           <div id='card-table'>
-               <LinkCard   links={searItems} onRemove={handleRemove}  searchLinks={search}  onEdit={handleOpenEdit} />
+               <LinkCard   links={searItems} onRemove={handleRemove}  searchLinks={search}  onEdit={handleOpenEdit} onAddClick={() => setShowForm(true)}/>
           </div>
 
         </div>
